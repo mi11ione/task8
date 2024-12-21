@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
-}
+    @State private var volume: Double = 0.2
 
-#Preview {
-    ContentView()
+    var body: some View {
+        ZStack {
+            Image("swag")
+                .resizable()
+                .blur(radius: 10, opaque: true)
+                .ignoresSafeArea()
+
+            Swag(value: $volume)
+                .frame(width: 140, height: 550)
+                .clipped()
+        }
+    }
 }
